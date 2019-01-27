@@ -42,7 +42,7 @@ class EnclosureGeneric(Enclosure):
         super().__init__()
         # Notifications from mycroft-core
         self.bus.on("enclosure.notify.no_internet", self.on_no_internet)
-
+        self.bus.on('enclosure.mouth.talk', self.talk)
         # initiates the web sockets on display manager
         # NOTE: this is a temporary place to connect the display manager
         init_display_manager_bus_connection()
@@ -54,7 +54,9 @@ class EnclosureGeneric(Enclosure):
             # receive the "speak".  This was sometimes happening too
             # quickly and the user wasn't notified what to do.
             Timer(5, self._do_net_check).start()
-
+    def talk(self, event=None):
+        LOG.debug("Wow this works")
+        
     def on_no_internet(self, event=None):
         if connected():
             # One last check to see if connection was established
