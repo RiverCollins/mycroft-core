@@ -55,20 +55,46 @@ class EnclosureZPod(Enclosure):
             # receive the "speak".  This was sometimes happening too
             # quickly and the user wasn't notified what to do.
             Timer(5, self._do_net_check).start()
+        self.bus.on('enclosure.mouth.reset', self.reset)
         self.bus.on('enclosure.mouth.talk', self.talk)
-        self.bus.on('enclosure.mouth.reset', self.talk)
-        self.bus.on('enclosure.mouth.talk', self.talk)
-        self.bus.on('enclosure.mouth.think', self.talk)
-        self.bus.on('enclosure.mouth.listen', self.talk)
-        self.bus.on('enclosure.mouth.smile', self.talk)
-        self.bus.on('enclosure.mouth.viseme', self.talk)
-        self.bus.on('enclosure.mouth.text', self.talk)
-        self.bus.on('enclosure.mouth.display', self.talk)
-        self.bus.on('enclosure.mouth.display_image', self.talk)
-        self.bus.on('enclosure.weather.display', self.talk)
-        
+        self.bus.on('enclosure.mouth.think', self.think)
+        self.bus.on('enclosure.mouth.listen', self.listen)
+        self.bus.on('enclosure.mouth.smile', self.smile)
+        self.bus.on('enclosure.mouth.viseme', self.viseme)
+        self.bus.on('enclosure.mouth.text', self.text)
+        self.bus.on('enclosure.mouth.display', self.display)
+        self.bus.on('enclosure.mouth.display_image', self.display_image)
+        self.bus.on('enclosure.weather.display', self.display_weather)
+
+    def reset(self, event=None):
+        LOG.debug("Wow reset")
+
     def talk(self, event=None):
-        LOG.debug("Wow this works")
+        LOG.debug("Wow talk")
+
+    def think(self, event=None):
+        LOG.debug("Wow think")
+
+    def listen(self, event=None):
+        LOG.debug("Wow listen")
+
+    def smile(self, event=None):
+        LOG.debug("Wow smile")
+    
+    def viseme(self, event=None):
+        LOG.debug("Wow viseme")
+
+    def text(self, event=None):
+        LOG.debug("Wow text")
+
+    def display(self, event=None):
+        LOG.debug("Wow display")
+
+    def display_image(self, event=None):
+        LOG.debug("Wow display_image")
+
+    def display_weather(self, event=None):
+        LOG.debug("Wow display_weather")
 
     def on_no_internet(self, event=None):
         if connected():
