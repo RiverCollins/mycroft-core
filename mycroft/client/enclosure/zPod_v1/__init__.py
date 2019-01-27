@@ -56,6 +56,17 @@ class EnclosureZPod(Enclosure):
             # quickly and the user wasn't notified what to do.
             Timer(5, self._do_net_check).start()
         self.bus.on('enclosure.mouth.talk', self.talk)
+        self.bus.on('enclosure.mouth.reset', self.talk)
+        self.bus.on('enclosure.mouth.talk', self.talk)
+        self.bus.on('enclosure.mouth.think', self.talk)
+        self.bus.on('enclosure.mouth.listen', self.talk)
+        self.bus.on('enclosure.mouth.smile', self.talk)
+        self.bus.on('enclosure.mouth.viseme', self.talk)
+        self.bus.on('enclosure.mouth.text', self.talk)
+        self.bus.on('enclosure.mouth.display', self.talk)
+        self.bus.on('enclosure.mouth.display_image', self.talk)
+        self.bus.on('enclosure.weather.display', self.talk)
+        
     def talk(self, event=None):
         LOG.debug("Wow this works")
 
