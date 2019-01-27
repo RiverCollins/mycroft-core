@@ -40,7 +40,7 @@ class EnclosureGeneric(Enclosure):
 
     def __init__(self):
         super().__init__()
-
+        LOG.debug("This is a test")
         # Notifications from mycroft-core
         self.bus.on("enclosure.notify.no_internet", self.on_no_internet)
 
