@@ -29,7 +29,7 @@ from mycroft.util import connected
 from mycroft.util.log import LOG
 
 
-class EnclosureGeneric(Enclosure):
+class EnclosureZPod(Enclosure):
     """
     Serves as a communication interface between a simple text frontend and
     Mycroft Core.  This is used for Picroft or other headless systems,
@@ -56,7 +56,7 @@ class EnclosureGeneric(Enclosure):
             Timer(5, self._do_net_check).start()
     def talk(self, event=None):
         LOG.debug("Wow this works")
-        
+
     def on_no_internet(self, event=None):
         if connected():
             # One last check to see if connection was established

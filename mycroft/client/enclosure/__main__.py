@@ -32,6 +32,10 @@ def main():
         LOG.debug("Creating Mark II Enclosure")
         from mycroft.client.enclosure.mark2 import EnclosureMark2
         enclosure = EnclosureMark2()
+    elif platform == "zPod_v1":
+        LOG.debug("Creating zPod_v1 Enclosure")
+        from mycroft.client.enclosure.zPod_v1 import EnclosureZPod
+        enclosure = EnclosureZPod()
     else:
         LOG.debug("Creating generic enclosure, platform='{}'".format(platform))
 
