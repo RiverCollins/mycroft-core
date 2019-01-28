@@ -71,6 +71,15 @@ class EnclosureZPod(Enclosure):
         self.bus.on('recognizer_loop:audio_output_start', self.mouthTalk)
         self.bus.on('recognizer_loop:audio_output_end', self.mouthReset)
 
+        self.bus.on('enclosure.mouth.events.activate', self.mouthActive)
+        self.bus.on('enclosure.mouth.events.deactivate', self.mouthDeactive)
+
+    def mouthDeactive(self, event=None):
+        LOG.debug("Wow mouth deactive")
+
+    def mouthActive(self, event=None):
+        LOG.debug("Wow mouth active")
+
     def mouthListen(self, event=None):
         LOG.debug("Wow mouth Listen")
 
