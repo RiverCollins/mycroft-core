@@ -66,6 +66,20 @@ class EnclosureZPod(Enclosure):
         self.bus.on('enclosure.mouth.display_image', self.display_image)
         self.bus.on('enclosure.weather.display', self.display_weather)
 
+        self.bus.on('recognizer_loop:record_begin', self.mouthListen)
+        self.bus.on('recognizer_loop:record_end', self.mouthReset)
+        self.bus.on('recognizer_loop:audio_output_start', self.mouthTalk)
+        self.bus.on('recognizer_loop:audio_output_end', self.mouthReset)
+
+    def mouthListen(self, event=None):
+        LOG.debug("Wow mouth Listen")
+
+    def mouthReset(self, event=None):
+        LOG.debug("Wow mouth reset")
+
+    def mouthTalk(self, event=None):
+        LOG.debug("Wow mouth talk")
+
     def reset(self, event=None):
         LOG.debug("Wow reset")
 
