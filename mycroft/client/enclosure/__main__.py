@@ -24,28 +24,28 @@ def main():
     system_config = LocalConf(SYSTEM_CONFIG)
     platform = system_config.get("enclosure", {}).get("platform")
 
-    # if platform == "mycroft_mark_1":
-    #     LOG.debug("Creating Mark I Enclosure")
-    #     from mycroft.client.enclosure.mark1 import EnclosureMark1
-    #     enclosure = EnclosureMark1()
-    # elif platform == "mycroft_mark_2":
-    #     LOG.debug("Creating Mark II Enclosure")
-    #     from mycroft.client.enclosure.mark2 import EnclosureMark2
-    #     enclosure = EnclosureMark2()
-    # elif platform == "zPod_v1":
-    #     LOG.debug("Creating zPod_v1 Enclosure")
-    #     from mycroft.client.enclosure.zPod_v1 import EnclosureZPod
-    #     enclosure = EnclosureZPod()
-    # else:
-    #     LOG.debug("Creating generic enclosure, platform='{}'".format(platform))
-        # TODO: Mechanism to load from elsewhere.  E.g. read a script path from
-        # the mycroft.conf, then load/launch that script.
-        # from mycroft.client.enclosure.generic import EnclosureGeneric
-        # enclosure = EnclosureGeneric()
+    if platform == "mycroft_mark_1":
+        LOG.debug("Creating Mark I Enclosure")
+        from mycroft.client.enclosure.mark1 import EnclosureMark1
+        enclosure = EnclosureMark1()
+    elif platform == "mycroft_mark_2":
+        LOG.debug("Creating Mark II Enclosure")
+        from mycroft.client.enclosure.mark2 import EnclosureMark2
+        enclosure = EnclosureMark2()
+    elif platform == "zPod_v1":
+        LOG.debug("Creating zPod_v1 Enclosure")
+        from mycroft.client.enclosure.zPod_v1 import EnclosureZPod
+        enclosure = EnclosureZPod()
+    else:
+        LOG.debug("Creating generic enclosure, platform='{}'".format(platform))
+        TODO: Mechanism to load from elsewhere.  E.g. read a script path from
+        the mycroft.conf, then load/launch that script.
+        from mycroft.client.enclosure.generic import EnclosureGeneric
+        enclosure = EnclosureGeneric()
 
-    LOG.debug("Creating zPod_v1 Enclosure")
-    from mycroft.client.enclosure.zPod_v1 import EnclosureZPod
-    enclosure = EnclosureZPod()
+    # LOG.debug("Creating zPod_v1 Enclosure")
+    # from mycroft.client.enclosure.zPod_v1 import EnclosureZPod
+    # enclosure = EnclosureZPod()
 
     if enclosure:
         try:
