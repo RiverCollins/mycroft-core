@@ -44,7 +44,7 @@ class EnclosureZPod(Enclosure):
         # Notifications from mycroft-core
         self.bus.on("enclosure.notify.no_internet", self.on_no_internet)
         self.bus.on("enclosure.started", self.talk)
-        self.testing = zBus()
+        # self.testing = zBus()
         
         # initiates the web sockets on display manager
         # NOTE: this is a temporary place to connect the display manager

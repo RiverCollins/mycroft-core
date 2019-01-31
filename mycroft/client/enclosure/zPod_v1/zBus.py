@@ -7,6 +7,12 @@ from mycroft.util.log import LOG
 
 import falcon
 
+class Routes():
+    def on_get(self, req, resp):
+        resp.status = falcon.HTTP_200
+        resp.body = ('\nTest works\n')
+        LOG.debug("zBus Test works")
+
 class zBus(Thread):
     def __init__(self):
         super(zBus, self).__init__(target=self.startBus)
@@ -23,9 +29,3 @@ class zBus(Thread):
 
     def routes(self):
         self.app.add_route('/test', self.routes)
-
-class Routes():
-    def on_get(self, req, resp):
-        resp.status = falcon.HTTP_200
-        resp.body = ('\nTest works\n')
-        LOG.debug("zBus Test works")
