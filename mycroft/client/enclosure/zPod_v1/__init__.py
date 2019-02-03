@@ -115,7 +115,8 @@ class EnclosureZPod(Enclosure):
         LOG.debug("Wow viseme")
 
     def text(self, event=None):
-        LOG.debug("Wow text")
+        r = requests.post("http://127.0.0.1/text")
+        LOG.debug("Wow ===================> text" + r.text)
 
     def display(self, event=None):
         LOG.debug("Wow display")
