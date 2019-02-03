@@ -28,7 +28,6 @@ from mycroft.enclosure.display_manager import \
 from mycroft.messagebus.message import Message
 from mycroft.util import connected
 from mycroft.util.log import LOG
-from mycroft.client.enclosure.zPod_v1.zBus import zBus
 
 class EnclosureZPod(Enclosure):
     """
@@ -44,7 +43,6 @@ class EnclosureZPod(Enclosure):
         # Notifications from mycroft-core
         self.bus.on("enclosure.notify.no_internet", self.on_no_internet)
         self.bus.on("enclosure.started", self.talk)
-        # self.testing = zBus()
         
         # initiates the web sockets on display manager
         # NOTE: this is a temporary place to connect the display manager
@@ -93,7 +91,6 @@ class EnclosureZPod(Enclosure):
 
     def reset(self, event=None):
         LOG.debug("Wow reset")
-        r = requests.get("http://127.0.0.1:8100/test")
 
     def talk(self, event=None):
         LOG.debug("Wow talk")
