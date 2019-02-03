@@ -65,6 +65,7 @@ class EnclosureZPod(Enclosure):
         self.bus.on('enclosure.mouth.display', self.display)
         self.bus.on('enclosure.mouth.display_image', self.display_image)
         self.bus.on('enclosure.weather.display', self.display_weather)
+        self.bus.on('speak', self.speakTest)
 
         self.bus.on('recognizer_loop:record_begin', self.mouthListen)
         self.bus.on('recognizer_loop:record_end', self.mouthReset)
@@ -73,6 +74,10 @@ class EnclosureZPod(Enclosure):
 
         self.bus.on('enclosure.mouth.events.activate', self.mouthActive)
         self.bus.on('enclosure.mouth.events.deactivate', self.mouthDeactive)
+
+    def speakTest(self, event=None):
+        r = requests.post("http://127.0.0.1/speakTest")
+        LOG.debug("Wow ===> speakTest" + r.text)
 
     def mouthDeactive(self, event=None):
         r = requests.post("http://127.0.0.1/mouthDeactive")
