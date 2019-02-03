@@ -95,7 +95,7 @@ class EnclosureZPod(Enclosure):
         LOG.debug("Wow ===> mouth Talkt" + r.text)
 
     def reset(self, event=None):
-        r = requests.post("http://127.0.0.1/test")
+        r = requests.post("http://127.0.0.1/reset")
         LOG.debug("Wow ===================> reset" + r.text)
 
     def talk(self, event=None):
