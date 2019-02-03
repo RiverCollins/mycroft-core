@@ -85,7 +85,7 @@ class EnclosureZPod(Enclosure):
     def speakTest(self, event):
         utterance = event.data['utterance']
         payload = {"words": utterance}
-        r = requests.post("http://127.0.0.1/speakTest", params=payload)
+        r = requests.get("http://127.0.0.1/speakTest", params=payload)
         LOG.debug("TEST " + r.url)
         LOG.debug("Wow ===> speakTest" + r.text)
         LOG.debug("TEST => " + utterance)
