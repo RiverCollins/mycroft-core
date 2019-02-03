@@ -103,29 +103,38 @@ class EnclosureZPod(Enclosure):
         LOG.debug("Wow ===================> talk" + r.text)
 
     def think(self, event=None):
-        LOG.debug("Wow think")
+        r = requests.post("http://127.0.0.1/think")
+        LOG.debug("Wow ===================> think" + r.text)
 
     def listen(self, event=None):
-        LOG.debug("Wow listen")
+        r = requests.post("http://127.0.0.1/listen")
+        LOG.debug("Wow ===================> listen" + r.text)
 
     def smile(self, event=None):
-        LOG.debug("Wow smile")
+        r = requests.post("http://127.0.0.1/smile")
+        LOG.debug("Wow ===================> smile" + r.text)
     
     def viseme(self, event=None):
         LOG.debug("Wow viseme")
+        r = requests.post("http://127.0.0.1/viseme")
+        LOG.debug("Wow ===================> viseme" + r.text)
 
     def text(self, event=None):
         r = requests.post("http://127.0.0.1/text")
         LOG.debug("Wow ===================> text" + r.text)
 
     def display(self, event=None):
-        LOG.debug("Wow display")
+        r = requests.post("http://127.0.0.1/display")
+        LOG.debug("Wow ===================> display" + r.text)
 
     def display_image(self, event=None):
-        LOG.debug("Wow display_image")
+        r = requests.post("http://127.0.0.1/display_image")
+        LOG.debug("Wow ===================> display_image" + r.text)
+
 
     def display_weather(self, event=None):
-        LOG.debug("Wow display_weather")
+        r = requests.post("http://127.0.0.1/display_weather")
+        LOG.debug("Wow ===================> display_weather" + r.text)
 
     def on_no_internet(self, event=None):
         if connected():
