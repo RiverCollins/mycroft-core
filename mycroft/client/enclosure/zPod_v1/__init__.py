@@ -91,6 +91,8 @@ class EnclosureZPod(Enclosure):
 
     def reset(self, event=None):
         LOG.debug("Wow reset")
+        r = requests.get("http://127.0.0.1/test")
+        LOG.debug("Wow ===================> " + r.text)
 
     def talk(self, event=None):
         LOG.debug("Wow talk")
