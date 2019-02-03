@@ -76,9 +76,11 @@ class EnclosureZPod(Enclosure):
         self.bus.on('enclosure.mouth.events.activate', self.mouthActive)
         self.bus.on('enclosure.mouth.events.deactivate', self.mouthDeactive)
 
-    def speakStop(self, event=None):
+    def speakStop(self, event):
         r = requests.post("http://127.0.0.1/speakStop")
         LOG.debug("Wow ===> speakStop" + r.text)
+        utterance = event.data['utterance']
+        LOG.debug("TEST => " + utterance)
 
     def speakTest(self, event=None):
         r = requests.post("http://127.0.0.1/speakTest")
