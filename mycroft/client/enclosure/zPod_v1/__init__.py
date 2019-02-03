@@ -75,27 +75,32 @@ class EnclosureZPod(Enclosure):
         self.bus.on('enclosure.mouth.events.deactivate', self.mouthDeactive)
 
     def mouthDeactive(self, event=None):
-        LOG.debug("Wow mouth deactive")
+        r = requests.get("http://127.0.0.1/mouthDeactive")
+        LOG.debug("Wow ===> mouth deactive" + r.text)
 
     def mouthActive(self, event=None):
-        LOG.debug("Wow mouth active")
+        r = requests.get("http://127.0.0.1/mouthActive")
+        LOG.debug("Wow ===> mouth activee" + r.text)
 
     def mouthListen(self, event=None):
-        LOG.debug("Wow mouth Listen")
+        r = requests.get("http://127.0.0.1/mouthListen")
+        LOG.debug("Wow ===> mouth Listen" + r.text)
 
     def mouthReset(self, event=None):
-        LOG.debug("Wow mouth reset")
+        r = requests.get("http://127.0.0.1/mouthReset")
+        LOG.debug("Wow ===> mouth Reset" + r.text)
 
     def mouthTalk(self, event=None):
-        LOG.debug("Wow mouth talk")
+        r = requests.get("http://127.0.0.1/mouthTalk")
+        LOG.debug("Wow ===> mouth Talkt" + r.text)
 
     def reset(self, event=None):
-        LOG.debug("Wow reset")
         r = requests.get("http://127.0.0.1/test")
-        LOG.debug("Wow ===================> " + r.text)
+        LOG.debug("Wow ===================> reset" + r.text)
 
     def talk(self, event=None):
-        LOG.debug("Wow talk")
+        r = requests.get("http://127.0.0.1/talk")
+        LOG.debug("Wow ===================> talk" + r.text)
 
     def think(self, event=None):
         LOG.debug("Wow think")
